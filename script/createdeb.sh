@@ -4,8 +4,8 @@ cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 ver=$(awk '/\tconst version =/ { print $4 }' shadowsocks/util.go | sed -e 's/"//g')
 
 if [[ $# != 1 ]]; then
-    echo "$0 <arch, i386 or amd64>"
-    exit 1
+  echo "$0 <arch, i386 or amd64>"
+  exit 1
 fi
 
 export CGO_ENABLED=0
@@ -13,16 +13,16 @@ export GOOS=linux
 
 arch=$1
 case $arch in
-    i386)
-        export GOARCH=386
-        ;;
-    amd64)
-        export GOARCH=amd64
-        ;;
-    *)
-        echo "arch $i not supported"
-        exit 1
-        ;;
+  i386)
+    export GOARCH=386
+    ;;
+  amd64)
+    export GOARCH=amd64
+    ;;
+  *)
+    echo "arch $i not supported"
+    exit 1
+    ;;
 esac
 
 # build shadowsocks server
@@ -43,4 +43,3 @@ cp cmd/shadowsocks-server/shadowsocks-server $DEBDIR/usr/bin/
 rm -f cmd/shadowsocks-server/shadowsocks-server
 
 fakeroot dpkg-deb --build $DEBDIR
-

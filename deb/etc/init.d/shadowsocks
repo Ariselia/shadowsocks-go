@@ -14,7 +14,7 @@
 ### END INIT INFO
 
 # Note: this script requires sudo in order to run shadowsocks as the specified
-# user. 
+# user.
 
 BIN=/usr/bin/shadowsocks-server
 CONFIG_FILE=/etc/shadowsocks/config.json

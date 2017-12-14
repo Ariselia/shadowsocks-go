@@ -10,4 +10,4 @@ install:
   - go install ./cmd/shadowsocks-server
 script:
   - PATH=$PATH:$HOME/gopath/bin bash -x ./script/test.sh
-sudo: false
+sudo:     false
